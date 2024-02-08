@@ -1,0 +1,38 @@
+{
+    "name": "GET AWAY",
+    "description": "개발자의 피로를 풀어주는 프로그램",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "https://*/*", 
+      "http://*/*"  
+    ],
+    "browser_action": {
+      "default_title": "GET AWAY",
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "/images/icon16.png",
+        "32": "/images/icon32.png",
+        "48": "/images/icon48.png",
+        "128": "/images/icon128.png"
+      }
+    },
+    "background": {
+      "scripts": ["scripts/background.js"],
+      "persistent": false
+    },
+    "content_scripts": [{
+      "matches": ["*://*/*"],
+      "js": ["scripts/contentscript.js"],
+      "run_at": "document_start"
+    }],
+    "icons": {
+        "16": "/images/icon16.png",
+        "32": "/images/icon32.png",
+        "48": "/images/icon48.png",
+        "128": "/images/icon128.png"
+    }
+}
